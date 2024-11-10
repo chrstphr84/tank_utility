@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "tank utility"
+version = "0.1.0"
+description = "script that pulls data from Tank Utility's API"
+authors = ["Christopher Noel"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.31.0"
+pushover = "^0.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
