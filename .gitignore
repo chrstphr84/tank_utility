@@ -7,6 +7,7 @@ __pycache__/
 .python-version
 .env
 .example_env.swp
+tank.json
 
 # C extensions
 *.so
