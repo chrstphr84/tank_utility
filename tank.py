@@ -1,18 +1,19 @@
 #!/env/python3
-#
-# This script pulls data from Tank Utility's API.
+
 import json
 import os
+import requests
 from datetime import datetime
 
-import constants
 import pushover
-import requests
+import constants
 
+
+## Get a token from Tank Utility API.  This token changes every 24 hours.
 try:
     response = requests.get(
-        "https://data.tankutility.com/api/getToken",  # This is NOT a secure call.
-        auth=(f"{str(constants.tankUtilityUser)}", f"{str(constants.tankUtilityPw)}"),
+        "https://data.tankutility.com/api/getToken",
+        auth=(constants.tankUtilityUser, constants.tankUtilityPw),
     )
     response.raise_for_status()
     data = response.json()
@@ -58,7 +59,7 @@ human_readable_time = datetime.fromtimestamp(int(str(time)[:10])).strftime("%c")
 lastReading = response_data["device"]["lastReading"]["tank"]
 rounded_reading = round(float(lastReading), 2)  # round to nearest hundredth
 
-
+# Battery Status
 if battery_warning and not battery_critical:
     battery_status = "Low"
     message_key = "battery_low"
@@ -90,18 +91,12 @@ def push_tank_level():
         message = pushover.push(message_dict["level_below_30"])
         message.notification()
 
-    else:
-        # readingMessage = ""
-        pass
-
 
 def push_battery_status():
     if battery_critical:
         message = pushover.push(message_dict["battery_critical"])
         message.notification()
 
-    else:
-        battery_message = ""
 
 
 def log_data():
@@ -116,9 +111,7 @@ def log_data():
             file.write(f"\n{now} {current_status}")
 
 
+
 push_tank_level()
 push_battery_status()
 log_data()
-
-
-# TODO Clean up code
