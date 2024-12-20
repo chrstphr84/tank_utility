@@ -4,7 +4,7 @@ This script interacts with the Tank Utility API to read the status of a propane 
 
 It has only been tested with the original Tank Utility monitor (prior to Generac).
 
-This script is for personal use and has no official affliation with Tank Utility or Generac.
+This script is for personal use and has no official affiliation with Tank Utility or Generac.
 
 ## Features
 
@@ -16,9 +16,14 @@ This script is for personal use and has no official affliation with Tank Utility
 ## Requirements
 
 - Python 3.x
-- `requests` library
-- Uses the Pushover app/service to send push notifications.  https://apps.apple.com/us/app/pushover-notifications/id506088175
-- `pushover` library
+- `requests` 
+- `pushover`
+  - https://pushover.net
+  - https://apps.apple.com/us/app/pushover-notifications/id506088175
+  - Pushover has a free 30-day trial. Unlimited usage requires a one-time in-app purchase.
+
+- `dotenv`
+  - Tank Utility API token and credentials
 
 
 ## Installation
@@ -27,12 +32,19 @@ This script is for personal use and has no official affliation with Tank Utility
 2. Install the required libraries using pip:
 
     ```
-    pip install requests pushover
+    pip install requests pushover python-dotenv
     ```
 
 ## Usage
 
-1. Replace `your_api_token_here` with your Tank Utility API token and credentials in constants.py.  They can alternatively be hardcoded at your own risk.
+1. create a `.env` file in the root directory with the following:
+
+    ```
+    TANKUTILITY_USER=your_api_user_here
+    TANKUTILITY_PW=your_api_pass_here
+    PUSHOVER_USER=your_pushover_user_here
+    PUSHOVER_TOKEN=your_pushover_token_here
+    ```
 2. Run the script:
 
     ```
