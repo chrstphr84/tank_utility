@@ -1,9 +1,11 @@
 #!python3
 
-# Pushover
-pushOverUser = "your_api_token_here"
-pushOverToken = "your_api_token_here"
+import os
+from dotenv import load_dotenv
 
-# Tank Utility
-tankUtilityUser = "your_username_here"
-tankUtilityPw = "your_password_here"
+load_dotenv()  # Load environment variables from a .env file
+
+pushOverUser = os.getenv("PUSHOVER_USER")
+pushOverToken = os.getenv("PUSHOVER_TOKEN")
+tankUtilityUser = os.getenv("TANKUTILITY_USER")
+tankUtilityPw = os.getenv("TANKUTILITY_PW")
