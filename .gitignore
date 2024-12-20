@@ -6,6 +6,8 @@ __pycache__/
 # private
 constants.py
 constants_template.py
+.python-version
+.env
 
 # C extensions
 *.so
