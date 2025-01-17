@@ -30,11 +30,12 @@ This script is for personal use and has no official affiliation with Tank Utilit
 
 1. Clone the repository or download the script.
 2. Install the required libraries using pip:
-3. Set up preferred triggering method (e.g. cron)
 
     ```
     pip install requests pushover python-dotenv
     ```
+3. Set up preferred triggering method (e.g. cron)
+
 
 ## Usage
 
