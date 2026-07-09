@@ -1,3 +1,8 @@
+### This project is no longer maintained. 
+The necessary API previously provided by Tank Utility is no longer accessible.
+
+---
+
 # Tank Utility Notification Script
 
 This script interacts with the Tank Utility API to read the status of a propane tank using the original WiFi Propane Tank Level Monitor (prev. Tank Utility, now Generac.) and sends notifications based on certain conditions, such as battery level and tank level. 
